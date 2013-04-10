@@ -1,0 +1,21 @@
+#!/bin/sh
+
+DEBOOTSTRAP_OPTIONS="--variant minbase"
+
+lb config noauto \
+      --distribution aequorea \
+      --binary-images iso-hybrid \
+      --archive-areas "main contrib non-free" \
+      --mirror-bootstrap http://archive.tanglu.org/tanglu \
+      --mirror-binary http://archive.tanglu.org/tanglu \
+      --build-with-chroot false \
+      --bootloader syslinux \
+      --initsystem systemd \
+      --firmware-chroot false \
+      --security false \
+      --updates false \
+      --linux-flavours "generic" \
+      "${@}"
+
+echo task-kde-desktop  >> config/package-lists/desktop.list.chroot
+echo tanglu-kde >> config/package-lists/desktop.list.chroot
