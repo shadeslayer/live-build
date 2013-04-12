@@ -1,7 +1,5 @@
 #!/bin/sh
 
-DEBOOTSTRAP_OPTIONS="--variant minbase"
-
 lb config noauto \
       --distribution aequorea \
       --binary-images iso-hybrid \
